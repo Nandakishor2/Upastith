@@ -1,0 +1,26 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    {% tailwind_css %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upatith</title>
+</head>
+
+<body >
+    {% load static %}
+    <div>
+        <form action="/signup" method = "post">
+            
+            <input type="number" name = "mobile" placeholder="Enter the mobile number">
+            <input type="password" name="password" placeholder="Enter the password">
+            {% csrf_token %}
+            <button type =  submit>Submit</button>
+        </form>
+    </div>
+    <a href="signin">Signin</a>
+</body>
+
+</html>

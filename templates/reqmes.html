@@ -1,0 +1,113 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    {% tailwind_css %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upatith</title>
+</head>
+
+<body>
+    {% load static %}
+    <div style="width: 100%; height: 100%; position: relative; background: white">
+        <form action="load" method="post" onchange="updatereason()">
+
+            <se
+                style="left: 43px; top: 75px; position: absolute; color: black; font-size: 30px; font-family: Noto Serif; font-weight: 400; word-wrap: break-word">
+                Select The Reason </se>
+            <select id="selectreason"
+                style="width: 245px; height: 56px; left: 42px; top: 147px; position: absolute; background: #D9D9D9" >
+                <option value="leave">Leave</option>
+                <option value="permission">Permission</option>
+                <option value="meetup">Meetup</option>
+                <option value="others">Others</option>
+
+            </select>
+            <input id="reason" name="reason" hidden="hidden" value="" />
+
+            <textarea
+                style="width: 455px; height: 169px; left: 362px; top: 96px; position: absolute; background: #D9D9D9"
+                name="message" cols="30" rows="10" placeholder="Enter your lines 200 words only"></textarea>
+            <button type="submit"
+                style="width: 303px; height: 94px; left: 861px; top: 96px; position: absolute; background: #D9D9D9; border-radius: 52px">Submit
+                the query</button>
+        </form>
+
+        <table style="width: 100%; border-collapse: collapse;  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); top: 300px; position: absolute;">
+            <thead>
+                <tr>
+                    <th style="padding: 12px; text-align: left; border-bottom: 1px solid #e0e0e0;">To</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 1px solid #e0e0e0;">Reason</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 1px solid #e0e0e0;">Message</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 1px solid #e0e0e0;">Status</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Dynamic table content will be added here -->
+            </tbody>
+        </table>
+   
+    </div>
+    
+    <script>
+    
+        msgs = []
+        function updatereason() {
+            reasons = document.getElementById("reason")
+            selectreason = document.getElementById("selectreason")
+            reasons.value = selectreason.value
+            console.log(reasons.value)
+        }
+        fetch("messsages", {
+            method: 'GET',
+        })
+            .then(response => response.json())
+            .then(data => {
+                msgs = data.output
+                renderStudents()
+
+            });
+        function renderStudents() {
+
+            const tableBody = document.getElementById("tableBody");
+            if (!tableBody) return;
+
+
+            tableBody.innerHTML = "";
+
+
+            msgs.forEach(msg => {
+                const row = tableBody.insertRow();
+                const To = row.insertCell(0);
+                const Reason = row.insertCell(1);
+                const Message = row.insertCell(2);
+                const Status = row.insertCell(3);
+
+                
+                
+
+                
+                To.textContent = msg.To;
+                Reason.textContent = msg.Reason
+                Message.textContent = msg.Message
+                Status.textContent = msg.Status
+
+
+
+
+
+
+            });
+        }
+
+
+    </script>
+    
+
+
+
+</body>
+
+</html>

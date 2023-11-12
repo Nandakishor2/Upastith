@@ -1,0 +1,36 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    {% tailwind_css %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upatith</title>
+</head>
+
+<body>
+    {% load static %}
+    
+        <table >
+            <thead>
+                <tr>
+                    <th>USN</th>
+                    
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id = "tableBody">
+                
+            </tbody>
+        </table>
+        
+        
+       <button id  = "datatobackend"> Submit</button> 
+  
+    <script src="/static/js/attendence.js"></script>
+
+
+</body>
+
+</html>

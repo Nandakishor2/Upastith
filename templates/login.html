@@ -1,0 +1,57 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    {% tailwind_css %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upatith</title>
+</head>
+
+<body>
+    {% load static %}
+    <div style="width: 1024px; height: 720px; position: relative; background: white">
+        <form action="/signin" method="post">
+            <div style="width: 1024px; height: 720px; left: 0px; top: 0px; position: absolute"></div>
+            <div
+                style="width: 512px; height: 720px; left: 0px; top: 0px; position: absolute; background: rgba(217, 217, 217, 0.66)">
+            </div>
+            <div
+                style="width: 606px; height: 471px; left: 183px; top: 99px; position: absolute; background: white; box-shadow: 4px 4px 4px; border: 1px black solid; filter: blur(4px)">
+            </div>
+            <input name="password" type="password" placeholder="Enter the Password"
+                style="width: 235px; height: 62px; left: 512px; top: 335px; position: absolute; background: rgba(217, 217, 217, 0.46); border-radius: 31px">
+            <!-- <div
+            style="left: 539px; top: 350px; position: absolute; color: black; font-size: 20px; font-family: BioRhyme; font-weight: 400; word-wrap: break-word">
+            Password</div> -->
+            <img style="width: 303px; height: 471px; left: 183px; top: 99px; position: absolute"
+                src="/static/images/background.jpg" />
+            <img style="width: 119px; height: 120px; left: 275px; top: 145px; position: absolute"
+                src="/static/images/bglogo.png" />
+            <input name="username" placeholder="Enter the User Name"
+                style="width: 235px; height: 62px; left: 512px; top: 230px; position: absolute; background: rgba(217, 217, 217, 0.46); border-radius: 31px">
+            <div
+                style="width: 80px; height: 39px; left: 590px; top: 166px; position: absolute; color: black; font-size: 36px; font-family: Irish Grover; font-weight: 400; word-wrap: break-word">
+                login</div>
+            <!-- <div
+            style="left: 548px; top: 245px; position: absolute; color: black; font-size: 20px; font-family: BioRhyme; font-weight: 400; word-wrap: break-word">
+            User-ID</div> -->
+            <img style="width: 200px; height: 200px; left: 234px; top: 306px; position: absolute"
+                src="/static/images/upastith.png" />
+            <div
+                style="padding-bottom: 6px; left: 564px; top: 428px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+                <button type="submit"
+                    style="padding-left: 32px; padding-right: 32px; padding-top: 23px; padding-bottom: 23px; background: rgba(217, 217, 217, 0.46); box-shadow: 0px 7px 21px rgba(37, 44, 97, 0.20); border-radius: 999px; overflow: hidden; justify-content: center; align-items: center; gap: 12px; display: flex">
+                    <div
+                        style="color: black; font-size: 14px; font-family: Montserrat; font-weight: 600; line-height: 14px; word-wrap: break-word">
+                        Sign In</div>
+                </button>
+            </div>
+        </form>
+    </div>
+
+
+</body>
+
+</html>

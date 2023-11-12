@@ -1,0 +1,127 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    {% tailwind_css %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upatith</title>
+</head>
+
+<body>
+    <div style="position: relative;">
+        <table style="width: 910px; border-collapse: collapse;  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); top: 20px;margin-left: 5px;margin-right: 5px; position: absolute; left: 130px;">
+            <thead>
+                <tr>
+                    <th style="padding: 12px; text-align: left; border-bottom: 1px solid #e0e0e0;">From</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 1px solid #e0e0e0;">Reason</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 1px solid #e0e0e0;">Message</th>
+                    <th style="padding: 12px; text-align: left; border-bottom: 1px solid #e0e0e0;">Status</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+    
+            </tbody>
+        </table>
+
+    </div>
+    
+    <script>
+
+        msgs = []
+
+        fetch("taskmessages", {
+            method: 'GET',
+        })
+            .then(response => response.json())
+            .then(data => {
+                msgs = data.output
+
+                rendertasks()
+
+            });
+        function rendertasks() {
+
+            const tableBody = document.getElementById("tableBody");
+            if (!tableBody) return;
+
+
+            tableBody.innerHTML = "";
+
+
+            msgs.forEach(msg => {
+                const row = tableBody.insertRow();
+                const From = row.insertCell(0);
+                const Reason = row.insertCell(1);
+                const Message = row.insertCell(2);
+                const Status = row.insertCell(3);
+
+                From.textContent = msg.From;
+                Reason.textContent = msg.Reason
+                Message.textContent = msg.Message
+                var button1 = document.createElement("button");
+                button1.innerHTML = "Accept";
+                button1.onclick = function () {
+                    msg.Status = "Accepted"
+                    console.log(msg)
+                    const formData = new FormData();
+                    for (const key in msg) {
+                        formData.append(key, msg[key]);
+                    }
+                    fetch('accept', {
+                        method: 'POST',
+                        body: formData
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                    location.reload()
+
+                }
+                var button2 = document.createElement("button");
+                button2.innerHTML = "Reject";
+                button2.onclick = function () {
+                    msg.Status = "Rejected"
+                    const formData = new FormData();
+                    for (const key in msg) {
+                        formData.append(key, msg[key]);
+                    }
+                    fetch('accept', {
+                        method: 'POST',
+                        body: formData
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                        location.reload()
+
+                }
+                button1.style.cssText = "padding-top: 0.5rem;padding-bottom: 0.5rem; padding-left: 0.5rem;padding-right: 0.5rem; border-radius: 0.5rem; border-width: 1px; background-color: #34D399; "
+                button2.style.cssText = "padding-top: 0.5rem;padding-bottom: 0.5rem; padding-left: 0.5rem;padding-right: 0.5rem; border-radius: 0.5rem; border-width: 1px; background-color: #F87171; "
+                Status.appendChild(button1)
+                Status.appendChild(button2)
+
+
+
+
+
+
+            });
+        }
+
+
+    </script>
+</body>
+
+</html>

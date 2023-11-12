@@ -1,0 +1,116 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    {% tailwind_css %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upatith</title>
+</head>
+
+<body>
+    {% load static %}
+    <div style="width: 1024px; height: 720px; position: relative; background: white">
+        <div style="width: 512px; height: 360px; left: 0px; top: 0px; position: absolute; background: #D9D9D9"></div>
+        <div style="width: 512px; height: 360px; left: 512px; top: 360px; position: absolute; background: #D9D9D9">
+        </div>
+        <div style="width: 840px; height: 380px; left: 114px; top: 160px; position: absolute; background: white"></div>
+
+        <img style="width: 842px; height: 378px; left: 112px; top: 162px; position: absolute; box-shadow: 4px 4px 4px; border: 1px black solid; filter: blur(4px)"
+            src="static/images/bg.jpg" />
+        <div
+            style="left: 662px; top: 408px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+            <a href="tasks"
+                style="padding-left: 18px; padding-right: 18px; padding-top: 11px; padding-bottom: 11px; background: #8FAB79; border-radius: 999px; overflow: hidden; justify-content: center; align-items: center; gap: 8px; display: flex">
+                <div
+                    style="color: white; font-size: 14px; font-family: Lato; font-weight: 700; line-height: 14px; word-wrap: break-word">
+                    Tasks</div>
+            </a>
+        </div>
+        <div
+            style="left: 412px; top: 408px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+            <div
+                style="padding-left: 18px; padding-right: 18px; padding-top: 11px; padding-bottom: 11px; background: #8FAB79; border-radius: 999px; overflow: hidden; justify-content: center; align-items: center; gap: 8px; display: flex">
+                <a href="attendence"
+                    style="color: white; font-size: 14px; font-family: Lato; font-weight: 700; line-height: 14px; word-wrap: break-word">Attendance</a>
+            </div>
+        </div>
+        <div
+            style="left: 773px; top: 410px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+            <a href="notification"
+                style="padding-left: 18px; padding-right: 18px; padding-top: 11px; padding-bottom: 11px; background: #8FAB79; border-radius: 999px; overflow: hidden; justify-content: center; align-items: center; gap: 8px; display: flex">
+                <div
+                    style="color: white; font-size: 14px; font-family: Lato; font-weight: 700; line-height: 14px; word-wrap: break-word">
+                    Notifications</div>
+            </a>
+        </div>
+        <img style="width: 148px; height: 287px; left: 176px; top: 264px; position: absolute"
+            src="static/images/padma.png" />
+        <div
+            style="left: 380px; top: 264px; position: absolute; color: black; font-size: 36px; font-family: Kings; font-weight: 400; word-wrap: break-word">
+            Prof.{{name}}</div>
+        <div
+            style="left: 380px; top: 314px; position: absolute; color: black; font-size: 26px; font-family: Kings; font-weight: 400; word-wrap: break-word">
+            Associate Professor,<br />Computer Science and Engineering Department</div>
+        <img style="width: 69px; height: 74px; left: 122px; top: 184px; position: absolute"
+            src="static/images/bglogo.png" />
+        <img style="width: 100px; height: 85.79px; left: 855px; top: 175px; position: absolute"
+            src="static/images/upastith.png" />
+        <form action="search" method="get">
+            <input type="text" name="usn" placeholder="Enter student USN"
+            style="width: 242px; height: 35px; left: 412px; top: 193px; position: absolute; background: white; border-radius: 20px">
+            <button type="submit"
+            style="width: 53px; height: 24px; padding-left: 18px; padding-right: 18px; padding-top: 11px; padding-bottom: 11px; left: 673px; top: 199px; position: absolute; background: #2B2E4A; border-radius: 999px; overflow: hidden; justify-content: center; align-items: center; gap: 8px; display: inline-flex">
+            <div
+                style="color: white; font-size: 14px; font-family: Lato; font-weight: 700; line-height: 14px; word-wrap: break-word">
+                Search</div>
+        </button>
+        </input>
+
+        </form>
+        
+        <a href="/logout"
+            style="left: 766px; top: 195px; position: absolute; color: black; font-size: 16px; font-family: Lemonada; font-weight: 380; word-wrap: break-word">Log
+            Out</a>
+        <div
+            style="left: 233px; top: 197px; position: absolute; color: black; font-size: 16px; font-family: Lemonada; font-weight: 380; word-wrap: break-word">
+            Period:</div>
+        <div
+            style="width: 99px; left: 305px; top: 197px; position: absolute; color: black; font-size: 16px; font-family: Lemonada; font-weight: 380; word-wrap: break-word">
+            {{period}}</div>
+        <div style="width: 37px; height: 10px; left: 674px; top: 192px; position: absolute"></div>
+        
+        <div
+            style="left: 551px; top: 408px; position: absolute; justify-content: center; align-items: center; display: inline-flex">
+            <a href="reqmes"
+                style="padding-left: 18px; padding-right: 18px; padding-top: 11px; padding-bottom: 11px; background: #8FAB79; border-radius: 999px; overflow: hidden; justify-content: center; align-items: center; gap: 8px; display: flex">
+                <div
+                    style="color: white; font-size: 14px; font-family: Lato; font-weight: 700; line-height: 14px; word-wrap: break-word">
+                    Intract</div>
+            </a>
+              
+        </div>
+    </div>
+
+
+
+    {% comment %} <div>
+        This is index page
+        <p>Name : {{name}}</p>
+        <p>Period : {{period}}</p>
+    </div>
+    <a href="/logout">Logout</a>
+    <a href="attendence">Attendence</a>
+    <a href="reqmes">Interact</a>
+    <a href="tasks">Tasks</a>
+    <a href="notification">Notifications</a>
+    <form action="search" method="get">
+        <input type="text" name="usn" placeholder="Enter student USN">
+        <button type="submit">Search</button>
+
+    </form> {% endcomment %}
+
+</body>
+
+</html>
